@@ -3,9 +3,49 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css"/>
-    <title>Projekt</title>
+    <script src="javaScript/brain.js/browser.mim.js"></script>
+    <title>Intelect paint</title>
   </head>
   <body>
-    <h1>Test</h1>>
-  </body>
-</html>>
+    <canvas id="canv" style="display: block;" >Ваш браузер устарел, пожалоста обновитесь.</canvas>
+
+    <script>
+      function DCanvas(el)
+      {
+        const ctx = el.getContext('2d');
+        const pixel = 20;
+
+        let is_mouse_down = false;
+
+        canv.width = 500;
+        canv.height = 500;
+
+        this.drawLine = function(x1, y1, x2, y2, color = "gray"){
+          ctx.beginPath();
+          ctx.storkeStyles = color;
+          ctx.lineJoin = "miter";
+          ctx.lineWidth = 1;
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+        }
+
+        this.drawCell = function(x, y, w, h){
+          ctx.fillStyle = 'blue';
+          ctx.storkeStyles = 'blue';
+          ctx.lineJoin = 'miter';
+          ctx.lineWidth = 1;
+          ctx.rect(x, y, w, h);
+          ctx.fill();
+        }
+
+        this.clear = function(){
+          ctx.clearRect(0, 0, canv.width, canv.height);
+        }
+
+      }
+
+      const d = new DCanvas(document.getElementById('Canv'));
+    </script>
+</body>
+</html>
